@@ -68,4 +68,35 @@ Responds type {
  }
 
 
+  Endpoint for profile [GET END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/register]( https://delta-state-smart-waste.onrender.com/api/v1/user/profile).
+
+Request Type {
+
+        method: GET
+        
+        headers: {
+            Content-Type: "application/json"
+            Authorization: "bearer $token" ---  where token is the jwt sent after a successful login
+        }
+
+        body: {}
+
+}
+
+
+Responds type { 
+
+    errors: []--- contains list of errors of a given request
+
+    success: boolean --- show the success state of a request could be true or false,
+
+    message: string --  a string containing a message to see for the frontend users
+
+    payload: {
+        user: UserModel -- details of the authenticated user
+    }
+
+ }
+
+
 
