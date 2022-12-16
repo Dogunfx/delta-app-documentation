@@ -36,7 +36,7 @@ Responds type {
  }
 
 
- Endpoint for Registration [POST END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/register]( https://delta-state-smart-waste.onrender.com/api/v1/user/login).
+ Endpoint for Registration [POST END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/register]( https://delta-state-smart-waste.onrender.com/api/v1/user/register).
 
 Request Type {
 
@@ -68,7 +68,7 @@ Responds type {
  }
 
 
-  Endpoint for profile [GET END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/register]( https://delta-state-smart-waste.onrender.com/api/v1/user/profile).
+  Endpoint for profile [GET END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/profile]( https://delta-state-smart-waste.onrender.com/api/v1/user/profile).
 
 Request Type {
 
@@ -97,6 +97,65 @@ Responds type {
     }
 
  }
+
+
+ Endpoint for generate-reset-code [POST END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/generate-reset-code]( https://delta-state-smart-waste.onrender.com/api/v1/user/generate-reset-code).
+
+Request Type {
+
+        method: POST
+        
+        headers: {
+            Content-Type: "application/json"
+        }
+
+        body: {
+            email:  @required -- a registered email in the system
+        }
+
+}
+
+
+Responds type { 
+
+    errors: []--- contains list of errors of a given request
+
+    success: boolean --- show the success state of a request could be true or false,
+
+    message: string --  a string containing a message to see for the frontend users
+
+ }
+
+
+ Endpoint for resetting password [POST END POINT: https://delta-state-smart-waste.onrender.com/api/v1/user/update-password]( https://delta-state-smart-waste.onrender.com/api/v1/user/update-password).
+
+Request Type {
+
+        method: POST
+        
+        headers: {
+            Content-Type: "application/json"
+        }
+
+        body: {
+            email: @required -- a registered email in the system
+            otp: @required -- a valid generated OTP for a user
+            password:  @required -- the new password to update 
+        }
+
+}
+
+
+Responds type { 
+
+    errors: []--- contains list of errors of a given request
+
+    success: boolean --- show the success state of a request could be true or false,
+
+    message: string --  a string containing a message to see for the frontend users
+
+ }
+
 
 
 
